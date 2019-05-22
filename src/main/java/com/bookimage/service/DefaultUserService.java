@@ -32,7 +32,7 @@ class DefaultUserService implements UserService, UserDetailsService {
 
     @Override
     public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
-        final Optional<User> userOptional = userRepository.findByUsername(username);
+        final Optional<User> userOptional = userRepository.findByEmail(username);
         return userOptional
             .map(user -> new org.springframework.security.core.userdetails.User(user.getEmail(), user.getPassword(), getAuthority(user)))
             .orElseThrow(() -> new UsernameNotFoundException("Invalid username or password."));

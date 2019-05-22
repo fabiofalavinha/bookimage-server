@@ -23,14 +23,14 @@ public class UserController {
         this.userParserFactory = userParserFactory;
     }
 
-    @PostMapping("/api/user")
+    @PostMapping("/public/user")
     public void createUser(@RequestBody UserDTO dto) {
         final Parser<User, UserDTO> userParser = userParserFactory.createParser();
         final User user = userParser.parseFrom(dto);
         userService.createUser(user);
     }
 
-    @PutMapping("/public/user")
+    @PutMapping("/api/user")
     public void updateUser(@RequestBody UserDTO dto) {
         final Parser<User, UserDTO> userParser = userParserFactory.createParser();
         final User user = userParser.parseFrom(dto);
