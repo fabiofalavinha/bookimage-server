@@ -1,1 +1,1 @@
-# Spring Boot Application for managing bookmark your favorite images
+# Spring Boot Application for handle bookmarking your favorite images
